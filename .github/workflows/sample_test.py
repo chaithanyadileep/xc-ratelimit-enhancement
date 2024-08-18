@@ -8,11 +8,11 @@ on:
   workflow_dispatch:
 
 jobs:
-  LB_Domain_Status_Check:
+  update_Ip_addr_in_cloud:
     runs-on: ubuntu-latest
     defaults:
       run:
-        working-directory: ./xc
+        working-directory: ./python
     steps:
     # Installing python for Validation 
     - uses: actions/checkout@v3
@@ -21,14 +21,11 @@ jobs:
     # Install the necessary Packages
     - name: Install the necessary packages
       run: |
-        python -m pip install requests
-        python -m pip install tqdm
-        python -m pip install art
+        python -m pip install requests      
         
-        
-    - name: Python Security Events get
+    - name: Updating the IP
       run: |
-        python get_security_events.py
+        python cloud-api-vars.py
 
     - name: Validate Deployment  
       run: |
