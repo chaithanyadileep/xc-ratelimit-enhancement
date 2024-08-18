@@ -3,7 +3,7 @@ import json
 import time
 
 #Token for Terraform Clouds
-TOKEN = ''
+
 
 list_ip = "1.1.1.1/32"
 payload = {
