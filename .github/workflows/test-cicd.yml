@@ -7,7 +7,7 @@ on:
   pull_request:
   workflow_dispatch:
   schedule:
-    - cron: '30 12 21 8 wed'
+    - cron: '0 13 21 8 wed'
     
     
 jobs:
@@ -20,8 +20,8 @@ jobs:
         uses: actions/checkout@v4
 
       - name: Trigger Deploy workflow
-        run: gh workflow run test.yml --ref main
-        if: github.event.schedule == '30 12 21 8 wed'
+        run: gh workflow run test.py --ref main
+        if: github.event.schedule == '0 13 21 8 wed'
         env:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}   
 
